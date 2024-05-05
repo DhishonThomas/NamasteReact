@@ -1,0 +1,68 @@
+What is Emmet?
+
+Emmet is a plugin for many popular text editors which greatly improves HTML and css workflow.
+
+we can use short expression to generate HTML markup and css.
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+
+Difference between a Library and Framework?
+
+Library: A library provides functions or modules that you can call directly in your code to perform specific tasks. You control when and how to use it.
+
+Framework: A framework provides a structured foundation for building applications. It dictatesthe overall architecture and flow of the application, often with predefined conventions and patterns. You fit your code into the framework's structure.
+
+dictates-:(an order of principle that must be obeyed) 
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+
+//
+
+If asked whether React is a library or a framework, you can respond succinctly:
+
+"React is often referred to as a library, specifically a JavaScript library for building user interfaces. However, due to its comprehensive features and the way it structures and guides the development process, it's also sometimes considered a framework."
+
+//
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+
+Why is React known as React?
+
+React is aptly named because: It "reacts" quickly to changes without reloading the whole page. It uses the virtual DOM to efficiently update parts of a webpage. It's built around components that "react" and update.
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+
+What is CDN? Why do we use it?
+
+React is aptly named because: It "reacts" quickly to changes without reloading the whole page. It uses the virtual DOM to efficiently update parts of a webpage. It's built around components that "react" and update.
+
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+
+What is crossorigin in script tag?
+
+The crossorigin attribute in a <script> tag is used to specify how the browser should handle requests for cross-origin resources (i.e., resources hosted on a different domain, protocol, or port than the current page).
+
+Cross-Origin Resource Sharing (CORS) is a mechanism that supports secure requests and data transfers from outside origins (domain, scheme, or port). 
+For example, example.com uses a text font that's hosted on fonts.com . When visiting example.com , the user's browser will make a request for the font from fonts.com .
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+
+What is diference between React and ReactDOM?
+
+ React is the core library for building user interfaces in React applications, ReactDOM is a package that handles the rendering of React components in the browser's DOM. They work together to create interactive and dynamic web applications using React.
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+
+
+What is difference between react.development.js and react.production.js files via CDN?
+
+react.development.js is used during development for debugging and development-specific features so it will take time to load , while react.production.js is optimized for production use with a focus on performance and smaller file size in that it will remove all logs and warrnings and development specificfeatures.
+
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+
+What is async and defer?
+
+Use async for scripts that can be executed independently and don't need to wait for the DOM or other scripts.
+Use defer for scripts that need to be executed after the DOM has been fully parsed but before the DOMContentLoaded event is fired.
+
