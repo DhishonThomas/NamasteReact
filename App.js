@@ -1,30 +1,21 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 
-const heading1 = React.createElement(
-   "h1",
-   {key:124,
-      id: "title"
-   },
-   "Heading 1"
-);
-
-const heading2 = React.createElement(
-   "h1",
-   {
-    key:123,
-      id: "title2"
-   }, 
-   "Heading 2"
-);
-
-const container = React.createElement(
-    "div",
-    {key:234,
-        id:"container"
-    },
-    [heading1,heading2]
+const title=(
+<h1>Header one using jsx element</h1>
 )
+
+const TitleFunction=()=>{
+  return ( <h2>Header second using jsx function</h2>)
+}
+
+function TitleComponent(){
+return (<div className="title">
+   {title}
+   {<TitleFunction/>}
+   <h3>Header inside the TitleComponent</h3>
+</div>)
+}
 
 
 
@@ -33,5 +24,5 @@ const root = ReactDOM.createRoot(
    document.getElementById("root")
 )
 
-root.render(container)
+root.render(TitleComponent())
 

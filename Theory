@@ -1,90 +1,120 @@
-● - What is 'NPM'?
+What is JSX?
 
-NPM is a package manager and a software registery that is used to install , uninstall , and update on our workstation.also it is the world's largest Software registery.
+JSX is a syntax extension for JavaScript, commonly used with React to describe what the UI should look like. It allows you to write HTML-like code directly within your JavaScript files.
 
+example::
+const element = <h1>Hello, JSX!</h1>;
 
-● - What is `Parcel/Webpack`? Why do we need it?
+In this example, <h1> is not a string but a JSX syntax that represents a React element.
 
-Parcel and Webpack  are both module bundlers for javascript applications. 
-Parcel is known for its zero configuration setup and simplicity, making it easy to get started without the need for complex setup files  it automates many taskes including dependency analysis and optimization .
-On the other hand Webpack offers extensive customization options and flexibility , allowing developers to fine-tune the building process to suit their project needs.
+././././././././././././././././././././././././././././././././././././././././././././
 
-Both tools are used to bundle javascriptcode and assets for webapplications , but they differ in their apporch and features , catering to different preferences and project requirements .
+Superpowers of JSX?
 
-
-● - What is `.parcel-cache`?
-
-Parcel-cache is a feature in Parcel , a web bundler , that saves the processed files to speed up future builds . it helps reduce the builds times by reusing previously compiled assets from a cache rather than rebuilding them every time you run parcel.
-
-● - What is `npx` ?
-
-NPX stands for Node Package eXecute. It is simply an NPM package runner. It allows developers to execute any Javascript Package available on the NPM registry without even installing it. NPX is installed automatically with NPM version 5.2. 0 and above.
+Readability.
+Developer experince
+No Repitation
+Less code
+Maintainability
 
 
- ● - What is difference between `dependencies` vs `devDependencies`is `npx` ?
-
-Dependencies are the crucial packages required for your application to function in a production environment. At the same time, devDependencies are tools and utilities that aid in the development process but are not needed in production.
+ Benefits of JSX
 
 
-● - What is Tree Shaking?
+Readability: JSX resembles HTML, making it easier to understand and write compared to verbose JavaScript function calls.
+Familiarity: Developers with experience in HTML find JSX more intuitive and natural to work with.
+Efficiency: JSX allows you to write UI components more quickly and concisely, reducing development time.
 
-💡 TREE SHAKING is a technique used in JavaScript to eliminate dead code or unused modules from a bundle during the build process. Tree shaking is typically a part of the bundling process in JavaScript-based development.
-
-● - What is Hot Module Replacement?
-
-Hot Module Replacement (HMR) exchanges, adds, or removes modules while an application is running, without a full reload. This can significantly speed up development in a few ways: Retain application state which is lost during a full reload. Save valuable development time by only updating what's changed.
-
-● - List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
-
-Minify.
-Cleaning our code.
-Dev abd production Build.
-Super fast build algorithm.
-Image Optimization.
-Caching while development.
-
-Cleaning our code::
-*in the Parcel it will clean the all logs using the babel power . so it will make the code clean and faster in the production time .
-
-Image Optimization::
-*in the Parcel we have the image Optimization power means we can fastly get or it will optimize the images so when we load the wepage we can fastly render the image.
-
-Caching while development::
-*in Parcel when we run it will create a folder called parcel cache in that it have the cache files so next time we render it we can fastly get run that beacause of the cache stored in the parcel-cache.
-
-● - What is `.gitignore`? What should we add and not add into it?
-
-Gitignore. . gitignore file is used in a git repository to ignore the files and directories which are unnecessary to project this will be ignored by the git once the changes as been committed to the Remote repository.
-
-Any thing we can generate on the server put in the gitignore.
+././././././././././././././././././././././././././././././././././././././././././././
 
 
-● - What is the difference between `package.json` and `package-lock.json`
+././././././././././././././././././././././././././././././././././././././././././././
+React.createElement vs JSX
 
-package.json: This file is manually managed and contains metadata about a Node.js project, like its name, version, entry points, scripts, and dependencies. Dependencies are listed with version ranges, offering flexibility.
-
-package-lock.json: Automatically generated, this file ensures consistent dependency versions by specifying exact versions and their dependencies. It's updated automatically when dependencies change and guarantees reproducibility across environments. Developers typically don't edit it directly but use it to maintain consistency in dependency resolution.
-
-
-● - Why should I not modify `package-lock.json`?
-
-You shouldn't modify package-lock.json because it ensures consistent and reproducible dependency versions across different environments. Manually changing it can lead to inconsistencies and disrupt automatic updates by package managers.
+While JSX is more readable and intuitive, behind the scenes, it gets converted into regular JavaScript function calls using React.createElement(). For example, the JSX code:
 
 
-● - What is `node_modules` ? Is it a good idea to push that on git?
-
-node_modules is a directory created by Node.js/npm that contains all the dependencies (third-party libraries and modules) required by a Node.js project. These dependencies are specified in the package.json file and installed using npm or yarn package managers.
-
-Instead of pushing node_modules to Git, it's recommended to include a .gitignore file in your project to exclude this directory from version control. This way, each developer can install dependencies locally using npm or yarn based on the project's package.json and package-lock.json (or yarn.lock) files. This keeps your repository clean, reduces its size, and ensures consistent dependency management across different environments.
+const element = <h1>Hello, JSX!</h1>;
 
 
-● - What is the `dist` folder?
+Gets converted into:
 
-The /dist folder contains the minimized version of the source code. The code present in the /dist folder is actually the code which is used on production web applications.
+const element = React.createElement('h1', null, 'Hello, JSX!');
 
-the dist folder is the build folder which contains all the files and folders which can be hosted in server. The dist folder contains the transpiled code of your react application in the format of JavaScript and also the required html and css files.
+Both approaches accomplish the same result, but JSX simplifies the process and makes the code more readable.
+././././././././././././././././././././././././././././././././././././././././././././
 
-● - What is `browserlists`?
+././././././././././././././././././././././././././././././././././././././././././././
+Behind the Scenes of JSX
 
-Browserslist can specify which browsers your web application can run in, it provides a configuration for specifying browsers range. Browserslist has become a standard in the industry, it is used by libraries such as Autoprefixer, Babel, ESLint, PostCSS, SWC and Webpack.
+When you write JSX code, it needs to be transformed into plain JavaScript for the browser to understand. Tools like Babel and Parcel handle this transformation process. Babel transpiles JSX into regular JavaScript code, making it compatible with all browsers. Parcel bundles and optimizes your JavaScript code, including JSX, for production.
 
+
+JSX => React.createElement=>Object=>HTML (DOM)
+
+"Here Bable is converting JSX to React.createElemnt()  and it will give a Object and that Object will be turn to HTML (DOM)"
+
+././././././././././././././././././././././././././././././././././././././././././././
+
+
+././././././././././././././././././././././././././././././././././././././././././././
+Components
+
+Components are the building blocks of React applications. They are reusable pieces of UI that encapsulate both structure and behavior. Components can be of two types:
+
+**Functional Components: These are JavaScript functions that accept props (input data) and return JSX to describe the UI. They are simpler and more lightweight.
+
+**Class Components: These are ES6 classes that extend React.Component. They have additional features like state and lifecycle methods.
+
+
+Functional Component is a normal function it is just returing a jsx or react element;;
+
+././././././././././././././././././././././././././././././././././././././././././././
+
+
+
+././././././././././././././././././././././././././././././././././././././././././././
+Composing Components
+
+Composing components involves combining multiple smaller components to create more complex UIs. This allows for better code organization, reusability, and maintainability. For example, you might compose a Header, Sidebar, and Footer component to create a complete layout for a web page.
+././././././././././././././././././././././././././././././././././././././././././././
+
+
+
+
+././././././././././././././././././././././././././././././././././././././././././././
+
+Component Composition
+
+if we have to use a component inside comoponet is called component composition.
+
+././././././././././././././././././././././././././././././././././././././././././././
+
+././././././././././././././././././././././././././././././././././././././././././././
+
+Role of the type attribute in the <script> tag
+
+The type attribute in the <script> tag specifies the media type (MIME type) of the script. It tells the browser how to interpret the contents of the script block. Common values for the type attribute include:
+
+*text/javascript: Specifies JavaScript code.
+*text/ecmascript: Specifies ECMAScript code.
+*module: Specifies that the script is a module (introduced in ECMAScript 6).
+
+Using the correct type attribute ensures that the browser handles the script appropriately.
+
+././././././././././././././././././././././././././././././././././././././././././././
+
+
+././././././././././././././././././././././././././././././././././././././././././././
+
+JSX Syntax: {TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>}
+
+In JSX, all three of these syntaxes represent the same thing: the rendering of the TitleComponent. Let's break them down:
+
+{TitleComponent}: This syntax is used to render the TitleComponent without any additional JSX elements around it. It's typically used when you want to render a component directly within another component's JSX code.
+
+{<TitleComponent/>}: This syntax uses self-closing tags (<TitleComponent/>) to render the TitleComponent. It's equivalent to the first syntax but explicitly indicates that the component is self-contained and doesn't have any children.
+
+{<TitleComponent></TitleComponent>}: This syntax explicitly wraps the TitleComponent within opening and closing tags (<TitleComponent> and </TitleComponent>). While functionally the same as the previous syntax, it may be used when you want to add additional JSX elements as children of the TitleComponent.
+
+././././././././././././././././././././././././././././././././././././././././././././
