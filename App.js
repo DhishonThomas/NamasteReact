@@ -5,24 +5,36 @@ const title=(
 <h1>Header one using jsx element</h1>
 )
 
-const TitleFunction=()=>{
-  return ( <h2>Header second using jsx function</h2>)
+
+
+const values = ()=>{
+   return(
+      <input type="text" placeholder="Enter value"/>
+
+   )
 }
 
-function TitleComponent(){
-return (<div className="title">
-   {title}
-   {<TitleFunction/>}
-   <h3>Header inside the TitleComponent</h3>
-</div>)
+const Search=()=>{
+   return(
+
+      <>
+      <div className="search ">
+
+         <div className="logo ">Logo</div>
+
+{values()}
+
+<div className="user ">User</div>
+
+      </div>
+    
+      </>
+   )
 }
-
-
 
 const root = ReactDOM.createRoot(
  
    document.getElementById("root")
 )
 
-root.render(TitleComponent())
-
+root.render(Search())

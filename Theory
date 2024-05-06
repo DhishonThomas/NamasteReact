@@ -42,7 +42,7 @@ Gets converted into:
 const element = React.createElement('h1', null, 'Hello, JSX!');
 
 Both approaches accomplish the same result, but JSX simplifies the process and makes the code more readable.
-././././././././././././././././././././././././././././././././././././././././././././
+././././././././././././././././././././././././././././././././././././././././././././.
 
 ././././././././././././././././././././././././././././././././././././././././././././
 Behind the Scenes of JSX
