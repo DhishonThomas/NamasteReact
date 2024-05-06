@@ -1,0 +1,36 @@
+./././././././././././.
+
+npm init
+
+npm install -D parcel  |OR|  npm install --save Dev parcel
+
+npm install react
+
+npm install react-dom
+
+npx parcel index.html 
+
+./././././././././././.
+
+
+the above given is the main commands to initilalize app and start app using the script so i can start it with less command line
+
+example in package.json file change the script so that you can easily simplfy the  commands
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+
+
+  so next time i start the app 
+./../././.
+
+  npm start 
+
+  to build
+
+  npm build
+
+  ./.././././.

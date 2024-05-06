@@ -1,68 +1,90 @@
-What is Emmet?
+● - What is 'NPM'?
 
-Emmet is a plugin for many popular text editors which greatly improves HTML and css workflow.
-
-we can use short expression to generate HTML markup and css.
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
-
-Difference between a Library and Framework?
-
-Library: A library provides functions or modules that you can call directly in your code to perform specific tasks. You control when and how to use it.
-
-Framework: A framework provides a structured foundation for building applications. It dictatesthe overall architecture and flow of the application, often with predefined conventions and patterns. You fit your code into the framework's structure.
-
-dictates-:(an order of principle that must be obeyed) 
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
-
-//
-
-If asked whether React is a library or a framework, you can respond succinctly:
-
-"React is often referred to as a library, specifically a JavaScript library for building user interfaces. However, due to its comprehensive features and the way it structures and guides the development process, it's also sometimes considered a framework."
-
-//
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
-
-Why is React known as React?
-
-React is aptly named because: It "reacts" quickly to changes without reloading the whole page. It uses the virtual DOM to efficiently update parts of a webpage. It's built around components that "react" and update.
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
-
-What is CDN? Why do we use it?
-
-React is aptly named because: It "reacts" quickly to changes without reloading the whole page. It uses the virtual DOM to efficiently update parts of a webpage. It's built around components that "react" and update.
+NPM is a package manager and a software registery that is used to install , uninstall , and update on our workstation.also it is the world's largest Software registery.
 
 
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+● - What is `Parcel/Webpack`? Why do we need it?
 
-What is crossorigin in script tag?
+Parcel and Webpack  are both module bundlers for javascript applications. 
+Parcel is known for its zero configuration setup and simplicity, making it easy to get started without the need for complex setup files  it automates many taskes including dependency analysis and optimization .
+On the other hand Webpack offers extensive customization options and flexibility , allowing developers to fine-tune the building process to suit their project needs.
 
-The crossorigin attribute in a <script> tag is used to specify how the browser should handle requests for cross-origin resources (i.e., resources hosted on a different domain, protocol, or port than the current page).
-
-Cross-Origin Resource Sharing (CORS) is a mechanism that supports secure requests and data transfers from outside origins (domain, scheme, or port). 
-For example, example.com uses a text font that's hosted on fonts.com . When visiting example.com , the user's browser will make a request for the font from fonts.com .
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
-
-What is diference between React and ReactDOM?
-
- React is the core library for building user interfaces in React applications, ReactDOM is a package that handles the rendering of React components in the browser's DOM. They work together to create interactive and dynamic web applications using React.
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+Both tools are used to bundle javascriptcode and assets for webapplications , but they differ in their apporch and features , catering to different preferences and project requirements .
 
 
-What is difference between react.development.js and react.production.js files via CDN?
+● - What is `.parcel-cache`?
 
-react.development.js is used during development for debugging and development-specific features so it will take time to load , while react.production.js is optimized for production use with a focus on performance and smaller file size in that it will remove all logs and warrnings and development specificfeatures.
+Parcel-cache is a feature in Parcel , a web bundler , that saves the processed files to speed up future builds . it helps reduce the builds times by reusing previously compiled assets from a cache rather than rebuilding them every time you run parcel.
+
+● - What is `npx` ?
+
+NPX stands for Node Package eXecute. It is simply an NPM package runner. It allows developers to execute any Javascript Package available on the NPM registry without even installing it. NPX is installed automatically with NPM version 5.2. 0 and above.
 
 
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././ 
+ ● - What is difference between `dependencies` vs `devDependencies`is `npx` ?
 
-What is async and defer?
+Dependencies are the crucial packages required for your application to function in a production environment. At the same time, devDependencies are tools and utilities that aid in the development process but are not needed in production.
 
-Use async for scripts that can be executed independently and don't need to wait for the DOM or other scripts.
-Use defer for scripts that need to be executed after the DOM has been fully parsed but before the DOMContentLoaded event is fired.
+
+● - What is Tree Shaking?
+
+💡 TREE SHAKING is a technique used in JavaScript to eliminate dead code or unused modules from a bundle during the build process. Tree shaking is typically a part of the bundling process in JavaScript-based development.
+
+● - What is Hot Module Replacement?
+
+Hot Module Replacement (HMR) exchanges, adds, or removes modules while an application is running, without a full reload. This can significantly speed up development in a few ways: Retain application state which is lost during a full reload. Save valuable development time by only updating what's changed.
+
+● - List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
+
+Minify.
+Cleaning our code.
+Dev abd production Build.
+Super fast build algorithm.
+Image Optimization.
+Caching while development.
+
+Cleaning our code::
+*in the Parcel it will clean the all logs using the babel power . so it will make the code clean and faster in the production time .
+
+Image Optimization::
+*in the Parcel we have the image Optimization power means we can fastly get or it will optimize the images so when we load the wepage we can fastly render the image.
+
+Caching while development::
+*in Parcel when we run it will create a folder called parcel cache in that it have the cache files so next time we render it we can fastly get run that beacause of the cache stored in the parcel-cache.
+
+● - What is `.gitignore`? What should we add and not add into it?
+
+Gitignore. . gitignore file is used in a git repository to ignore the files and directories which are unnecessary to project this will be ignored by the git once the changes as been committed to the Remote repository.
+
+Any thing we can generate on the server put in the gitignore.
+
+
+● - What is the difference between `package.json` and `package-lock.json`
+
+package.json: This file is manually managed and contains metadata about a Node.js project, like its name, version, entry points, scripts, and dependencies. Dependencies are listed with version ranges, offering flexibility.
+
+package-lock.json: Automatically generated, this file ensures consistent dependency versions by specifying exact versions and their dependencies. It's updated automatically when dependencies change and guarantees reproducibility across environments. Developers typically don't edit it directly but use it to maintain consistency in dependency resolution.
+
+
+● - Why should I not modify `package-lock.json`?
+
+You shouldn't modify package-lock.json because it ensures consistent and reproducible dependency versions across different environments. Manually changing it can lead to inconsistencies and disrupt automatic updates by package managers.
+
+
+● - What is `node_modules` ? Is it a good idea to push that on git?
+
+node_modules is a directory created by Node.js/npm that contains all the dependencies (third-party libraries and modules) required by a Node.js project. These dependencies are specified in the package.json file and installed using npm or yarn package managers.
+
+Instead of pushing node_modules to Git, it's recommended to include a .gitignore file in your project to exclude this directory from version control. This way, each developer can install dependencies locally using npm or yarn based on the project's package.json and package-lock.json (or yarn.lock) files. This keeps your repository clean, reduces its size, and ensures consistent dependency management across different environments.
+
+
+● - What is the `dist` folder?
+
+The /dist folder contains the minimized version of the source code. The code present in the /dist folder is actually the code which is used on production web applications.
+
+the dist folder is the build folder which contains all the files and folders which can be hosted in server. The dist folder contains the transpiled code of your react application in the format of JavaScript and also the required html and css files.
+
+● - What is `browserlists`?
+
+Browserslist can specify which browsers your web application can run in, it provides a configuration for specifying browsers range. Browserslist has become a standard in the industry, it is used by libraries such as Autoprefixer, Babel, ESLint, PostCSS, SWC and Webpack.
 
