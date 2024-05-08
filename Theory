@@ -1,120 +1,159 @@
-What is JSX?
+Is JSX mandatory for React?
 
-JSX is a syntax extension for JavaScript, commonly used with React to describe what the UI should look like. It allows you to write HTML-like code directly within your JavaScript files.
-
-example::
-const element = <h1>Hello, JSX!</h1>;
-
-In this example, <h1> is not a string but a JSX syntax that represents a React element.
-
-././././././././././././././././././././././././././././././././././././././././././././
-
-Superpowers of JSX?
-
-Readability.
-Developer experince
-No Repitation
-Less code
-Maintainability
-
-
- Benefits of JSX
-
-
-Readability: JSX resembles HTML, making it easier to understand and write compared to verbose JavaScript function calls.
-Familiarity: Developers with experience in HTML find JSX more intuitive and natural to work with.
-Efficiency: JSX allows you to write UI components more quickly and concisely, reducing development time.
-
-././././././././././././././././././././././././././././././././././././././././././././
-
-
-././././././././././././././././././././././././././././././././././././././././././././
-React.createElement vs JSX
-
-While JSX is more readable and intuitive, behind the scenes, it gets converted into regular JavaScript function calls using React.createElement(). For example, the JSX code:
-
-
-const element = <h1>Hello, JSX!</h1>;
-
-
-Gets converted into:
-
-const element = React.createElement('h1', null, 'Hello, JSX!');
-
-Both approaches accomplish the same result, but JSX simplifies the process and makes the code more readable.
-././././././././././././././././././././././././././././././././././././././././././././.
-
-././././././././././././././././././././././././././././././././././././././././././././
-Behind the Scenes of JSX
-
-When you write JSX code, it needs to be transformed into plain JavaScript for the browser to understand. Tools like Babel and Parcel handle this transformation process. Babel transpiles JSX into regular JavaScript code, making it compatible with all browsers. Parcel bundles and optimizes your JavaScript code, including JSX, for production.
-
-
-JSX => React.createElement=>Object=>HTML (DOM)
-
-"Here Bable is converting JSX to React.createElemnt()  and it will give a Object and that Object will be turn to HTML (DOM)"
-
-././././././././././././././././././././././././././././././././././././././././././././
-
-
-././././././././././././././././././././././././././././././././././././././././././././
-Components
-
-Components are the building blocks of React applications. They are reusable pieces of UI that encapsulate both structure and behavior. Components can be of two types:
-
-**Functional Components: These are JavaScript functions that accept props (input data) and return JSX to describe the UI. They are simpler and more lightweight.
-
-**Class Components: These are ES6 classes that extend React.Component. They have additional features like state and lifecycle methods.
-
-
-Functional Component is a normal function it is just returing a jsx or react element;;
-
-././././././././././././././././././././././././././././././././././././././././././././
+No it is not mandatory .
+React doesn't require using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.
 
 
 
-././././././././././././././././././././././././././././././././././././././././././././
-Composing Components
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
 
-Composing components involves combining multiple smaller components to create more complex UIs. This allows for better code organization, reusability, and maintainability. For example, you might compose a Header, Sidebar, and Footer component to create a complete layout for a web page.
-././././././././././././././././././././././././././././././././././././././././././././
+Is ES6 mandatory for React?
 
-
+A: ES6 is not mandatory for React but is highly recommendable. The latest projects created on React rely a lot on ES6. React uses ES6, and you should be familiar with some of the new features like: Classes, Arrow Functions, Variables(let, const). ES6 stands for ECMAScript 6
 
 
-././././././././././././././././././././././././././././././././././././././././././././
 
-Component Composition
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
 
-if we have to use a component inside comoponet is called component composition.
+{TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX
 
-././././././././././././././././././././././././././././././././././././././././././././
+1).{TitleComponent}: This syntax renders the component as is. It's commonly used when you're rendering a component as a child of another component or within a JSX expression. For example:
 
-././././././././././././././././././././././././././././././././././././././././././././
-
-Role of the type attribute in the <script> tag
-
-The type attribute in the <script> tag specifies the media type (MIME type) of the script. It tells the browser how to interpret the contents of the script block. Common values for the type attribute include:
-
-*text/javascript: Specifies JavaScript code.
-*text/ecmascript: Specifies ECMAScript code.
-*module: Specifies that the script is a module (introduced in ECMAScript 6).
-
-Using the correct type attribute ensures that the browser handles the script appropriately.
-
-././././././././././././././././././././././././././././././././././././././././././././
+<div>
+    {TitleComponent}
+</div>
 
 
-././././././././././././././././././././././././././././././././././././././././././././
+2).{<TitleComponent/>}: This syntax is called "self-closing" and is essentially the same as the previous one, but it's explicitly indicating that TitleComponent is a self-closing tag. This is equivalent to using {TitleComponent}. 
 
-JSX Syntax: {TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>}
 
-In JSX, all three of these syntaxes represent the same thing: the rendering of the TitleComponent. Let's break them down:
+<div>
+    <TitleComponent/>
+</div>
 
-{TitleComponent}: This syntax is used to render the TitleComponent without any additional JSX elements around it. It's typically used when you want to render a component directly within another component's JSX code.
 
-{<TitleComponent/>}: This syntax uses self-closing tags (<TitleComponent/>) to render the TitleComponent. It's equivalent to the first syntax but explicitly indicates that the component is self-contained and doesn't have any children.
+3).{<TitleComponent></TitleComponent>}: This syntax explicitly defines the opening and closing tags for the component. It's useful when you need to pass children to the component or if you're rendering multiple components adjacent to each other. 
 
-{<TitleComponent></TitleComponent>}: This syntax explicitly wraps the TitleComponent within opening and closing tags (<TitleComponent> and </TitleComponent>). While functionally the same as the previous syntax, it may be used when you want to add additional JSX elements as children of the TitleComponent.
 
-././././././././././././././././././././././././././././././././././././././././././././
+<div>
+    <TitleComponent>
+        <SubtitleComponent/>
+    </TitleComponent>
+</div>
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+
+What is <React.Fragment></React.Fragment> and <></> ?
+
+In React, <React.Fragment></React.Fragment> and <> </> are both used to group multiple elements without adding extra nodes to the DOM.
+
+
+Any peice of jsx component that we write their can be only one parent ,so if we want to write more than one element in the jsx we want to add React.fragments or fragments.
+
+otherwise{
+    without using fragments we want to use a div inside a div it will look ugly 
+}
+
+=>to aviod extra peice of code 
+
+=>if we don't want a div we can use React.fragment
+
+1)<React.Fragment></React.Fragment>: This syntax explicitly defines a fragment using the <React.Fragment> component. It's useful when you need to wrap multiple elements without introducing an additional DOM element. 
+
+<React.Fragment>
+    <div>Element 1</div>
+    <div>Element 2</div>
+</React.Fragment>
+
+
+2)<> </>: This syntax is a shorthand for <React.Fragment>. It provides a more concise way to create fragments without explicitly importing React or using the React.Fragment component. 
+
+
+<>
+    <div>Element 1</div>
+    <div>Element 2</div>
+</>
+
+However, if you need to specify a key or other attributes on the fragment, you must use <React.Fragment> syntax.
+
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+
+What is Virtual DOM?
+
+
+The Virtual DOM (VDOM) is a programming concept used in libraries like React.js to improve the performance of web applications. It's essentially a lightweight copy of the actual DOM (Document Object Model) represented as a tree structure in memory.
+
+Here's how it works:
+
+**Initial Render: When a React component is first rendered, it creates a Virtual DOM representation of the UI.
+
+**Updates: When there's a change in the state or props of a component, React calculates the difference (diffing) between the new Virtual DOM and the previous one.
+
+**Reconciliation: React efficiently updates only the parts of the actual DOM that have changed, minimizing the number of manipulations required.
+
+**Batching Updates: React often batches multiple updates together, further optimizing the process
+
+The Virtual DOM allows React to perform these operations efficiently because manipulating the Virtual DOM in memory is faster than directly interacting with the actual DOM. Once all the necessary changes are calculated, React updates the real DOM only where necessary, resulting in a more efficient rendering process.
+
+Benefits of the Virtual DOM include:
+
+**Performance: By minimizing the number of updates to the actual DOM, React improves the performance of web applications.
+
+**Developer Experience: Developers can work with a virtual representation of the DOM, which often simplifies the process of building and updating UI components.
+
+**Cross-platform Consistency: The Virtual DOM abstraction helps ensure consistent behavior across different browsers and platforms.
+
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+why do we need virtual DOM ?
+
+We need virtual DOM to reconsilation of react.
+
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+
+What is Reconciliation in React?
+
+Reconsiliation means that react uses an algorithm (diff algorithm)  to find out the difference between your tree (tree means actual dom or virtual dom) and then it finds out what needs to be updated and just update that small portion of it , and it rerenders that small portion.
+
+
+The Hot module Reconsiliation is happening on the parcel bundler &AND& The Reconsiliation on the React is happening on the browser.
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+
+What is React Fiber?
+
+==>is a new Reconsilation engine is resposible for Diff Algorithm .
+
+React Fiber aims to improve the responsiveness and renderability of user interfaces in React applications. It does this by introducing a new reconciliation algorithm that can split rendering work into chunks and spread it out over multiple frames
+
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+
+Why we need keys in React? When do we need keys in React?
+
+ A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. Keys are used to give an identity to the elements in the lists.
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+
+Can we use index as keys in React?
+
+yes we can use but use only if you don't have any thing or use as a last option 
+
+The key is used by React to identify which elements have changed, which can help improve the performance of your application. However, a common mistake is to use the index of the element as the key . While this may seem like a reasonable solution, it can cause issues when the order of the list is changed.
+
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+
+What is props in React? Ways to
+
+Props is a special keyword in React that stands for properties and is used for passing data from one component to another. Data with props are passed in a unidirectional flow from parent to child.
+
+
+ways are like destrcturing...
+
+./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+What is a Config Driven UI ?
+
+Config-driven UI is a technique that allows you to create dynamic and customizable UIs without hard coding them. It uses a configuration file to define the layout and content of the UI components. This talk will cover the implementation of a smallest unit of component, such as a drop-down, form, or chart.
