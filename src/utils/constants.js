@@ -1,0 +1,2 @@
+export const LOGO_URL="https://yt3.googleusercontent.com/ytc/AIdro_khDPXdl1ezbGnSrhNWw09nCQDdpcWXF8QnV-1xCcbYng=s900-c-k-c0x00ffffff-no-rj"
+export const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"

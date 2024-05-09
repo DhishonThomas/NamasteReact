@@ -77,3 +77,17 @@ color: black;
 .res-card > img:hover{
     transform: scale(1.05); 
 }
+
+.filter button{
+margin: 10px 10px 10px 10px;
+background-color: beige;
+border: 2px solid rgb(46, 41, 35);
+border-radius: 5px;
+padding: 5px;
+} 
+
+.filter button:hover{
+    background-color: rgb(221, 218, 214);
+    cursor: pointer;
+
+}

@@ -1,159 +1,112 @@
-Is JSX mandatory for React?
+What is the difference between Named Export, Default export and * as export?
 
-No it is not mandatory .
-React doesn't require using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.
+Named Exports:
+💥 With named exports, you can export multiple named values (functions, variables, classes, etc.) from a module.
 
+💥 To export something as named export, you use the export keyword followed by the name of the value you want to export.
 
+💥 When importing named exports, you use curly braces {} to destructure the named exports you want to import.
 
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
 
-Is ES6 mandatory for React?
+// Exporting module.js
+export const myFunction = () => { /* function body */ };
+export const myVariable = 'Hello';
 
-A: ES6 is not mandatory for React but is highly recommendable. The latest projects created on React rely a lot on ES6. React uses ES6, and you should be familiar with some of the new features like: Classes, Arrow Functions, Variables(let, const). ES6 stands for ECMAScript 6
+// Importing module.js
+import { myFunction, myVariable } from './module';
 
 
 
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+Default Export:
+💥 Default exports allow you to export only one value per module.
 
-{TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX
+💥 You use the export default syntax to export a value as default from a module.
 
-1).{TitleComponent}: This syntax renders the component as is. It's commonly used when you're rendering a component as a child of another component or within a JSX expression. For example:
+💥 When importing a default export, you can choose any name for the imported value.
 
-<div>
-    {TitleComponent}
-</div>
+// Exporting module.js
+const myFunction = () => { /* function body */ };
+export default myFunction;
 
+// Importing module.js
+import myFunction from './module';
 
-2).{<TitleComponent/>}: This syntax is called "self-closing" and is essentially the same as the previous one, but it's explicitly indicating that TitleComponent is a self-closing tag. This is equivalent to using {TitleComponent}. 
 
+* as Export:
+💥 The * as syntax allows you to import all named exports from a module as properties of an object.
 
-<div>
-    <TitleComponent/>
-</div>
+💥 It's typically used when you want to import multiple named exports from a module but prefer to access them through a single object.
 
 
-3).{<TitleComponent></TitleComponent>}: This syntax explicitly defines the opening and closing tags for the component. It's useful when you need to pass children to the component or if you're rendering multiple components adjacent to each other. 
+// Exporting module.js
+export const foo = () => { /* function body */ };
+export const bar = () => { /* function body */ };
 
+// Importing module.js
+import * as myModule from './module';
+// Now you can access named exports as properties of myModule
+myModule.foo();
+myModule.bar();
 
-<div>
-    <TitleComponent>
-        <SubtitleComponent/>
-    </TitleComponent>
-</div>
 
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+In summary, named exports are useful for exporting multiple values from a module, default export is used when you want to export a single value as the default export, and * as export is used to import multiple named exports from a module and access them through a single object.
 
-What is <React.Fragment></React.Fragment> and <></> ?
 
-In React, <React.Fragment></React.Fragment> and <> </> are both used to group multiple elements without adding extra nodes to the DOM.
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
 
 
-Any peice of jsx component that we write their can be only one parent ,so if we want to write more than one element in the jsx we want to add React.fragments or fragments.
+What is the importance of config.js file
 
-otherwise{
-    without using fragments we want to use a div inside a div it will look ugly 
-}
 
-=>to aviod extra peice of code 
+A `config.js` file serves as a central hub for storing configuration settings in a web application. Its importance lies in:
 
-=>if we don't want a div we can use React.fragment
+1. Centralization: It provides a single place to manage configuration settings, making it easier to maintain and update.
 
-1)<React.Fragment></React.Fragment>: This syntax explicitly defines a fragment using the <React.Fragment> component. It's useful when you need to wrap multiple elements without introducing an additional DOM element. 
+2. Environment-specific settings: It allows for the management of environment-specific configurations, such as API endpoints or database credentials, ensuring consistent behavior across different deployment environments.
 
-<React.Fragment>
-    <div>Element 1</div>
-    <div>Element 2</div>
-</React.Fragment>
+3. Security: By storing sensitive information separately from the codebase, it helps enhance security and prevents accidental exposure of sensitive data.
 
+4. Deployment flexibility: It facilitates smooth deployment by enabling easy switching of configurations for different environments without modifying the source code.
 
-2)<> </>: This syntax is a shorthand for <React.Fragment>. It provides a more concise way to create fragments without explicitly importing React or using the React.Fragment component. 
+5. Testing: It aids in testing by providing a way to mock or stub configurations for different testing scenarios, ensuring thorough testing of the application under various conditions.
 
 
-<>
-    <div>Element 1</div>
-    <div>Element 2</div>
-</>
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
 
-However, if you need to specify a key or other attributes on the fragment, you must use <React.Fragment> syntax.
+What are React Hooks?
 
+React Hooks are functions that allow functional components to have stateful logic and access React lifecycle features. They were introduced in React version 16.8. Prior to Hooks, stateful logic and lifecycle methods were only available in class components. Hooks provide a more concise and flexible way to use state and other React features in functional components without the need for class syntax.
 
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
+There are several built-in hooks provided by React, including:
 
-What is Virtual DOM?
+1. `useState`: Allows functional components to have local state.
+2. `useEffect`: Enables performing side effects in functional components, such as data fetching, subscriptions, or manually changing the DOM.
+3. `useContext`: Provides access to the React context within functional components.
+4. `useReducer`: An alternative to `useState`, useful for managing more complex state logic.
+5. `useRef`: Returns a mutable ref object whose `.current` property can be used to persist values across renders.
+6. `useCallback` and `useMemo`: Memoize functions and values to optimize performance.
+7. `useLayoutEffect`: Similar to `useEffect`, but fires synchronously after all DOM mutations.
 
+Custom hooks can also be created, allowing for reusable logic to be shared across components. React Hooks have become a fundamental part of React development, enabling functional components to be more powerful and expressive while retaining simplicity and readability.
 
-The Virtual DOM (VDOM) is a programming concept used in libraries like React.js to improve the performance of web applications. It's essentially a lightweight copy of the actual DOM (Document Object Model) represented as a tree structure in memory.
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
 
-Here's how it works:
+Why do we need a useState Hook?
 
-**Initial Render: When a React component is first rendered, it creates a Virtual DOM representation of the UI.
 
-**Updates: When there's a change in the state or props of a component, React calculates the difference (diffing) between the new Virtual DOM and the previous one.
 
-**Reconciliation: React efficiently updates only the parts of the actual DOM that have changed, minimizing the number of manipulations required.
+The `useState` hook in React is like a toolbox for functional components. It allows these components to have their own memory, called "state." This memory can hold information that changes over time, like a counter or the text in an input field.
 
-**Batching Updates: React often batches multiple updates together, further optimizing the process
+Before hooks, only class components could have this memory. But now, with `useState`, functional components can also remember things.
 
-The Virtual DOM allows React to perform these operations efficiently because manipulating the Virtual DOM in memory is faster than directly interacting with the actual DOM. Once all the necessary changes are calculated, React updates the real DOM only where necessary, resulting in a more efficient rendering process.
+Why is it important?
 
-Benefits of the Virtual DOM include:
+1. **Keeps Things Simple:** Functional components are easier to write and understand. `useState` makes them even simpler by allowing them to remember information without converting them into class components.
 
-**Performance: By minimizing the number of updates to the actual DOM, React improves the performance of web applications.
+2. **No More Confusion:** With `useState`, functional components don't need the confusing `this` keyword to access their memory. They can do it directly, making the code clearer.
 
-**Developer Experience: Developers can work with a virtual representation of the DOM, which often simplifies the process of building and updating UI components.
+3. **Better Performance:** Functional components with `useState` can often run faster than class components because React can optimize them more efficiently.
 
-**Cross-platform Consistency: The Virtual DOM abstraction helps ensure consistent behavior across different browsers and platforms.
+In a nutshell, `useState` is like a magic spell that gives functional components the power to remember things. It keeps the code simple, reduces confusion, and makes everything run faster.
 
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
-why do we need virtual DOM ?
-
-We need virtual DOM to reconsilation of react.
-
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
-
-What is Reconciliation in React?
-
-Reconsiliation means that react uses an algorithm (diff algorithm)  to find out the difference between your tree (tree means actual dom or virtual dom) and then it finds out what needs to be updated and just update that small portion of it , and it rerenders that small portion.
-
-
-The Hot module Reconsiliation is happening on the parcel bundler &AND& The Reconsiliation on the React is happening on the browser.
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
-
-What is React Fiber?
-
-==>is a new Reconsilation engine is resposible for Diff Algorithm .
-
-React Fiber aims to improve the responsiveness and renderability of user interfaces in React applications. It does this by introducing a new reconciliation algorithm that can split rendering work into chunks and spread it out over multiple frames
-
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
-
-Why we need keys in React? When do we need keys in React?
-
- A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. Keys are used to give an identity to the elements in the lists.
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
-
-Can we use index as keys in React?
-
-yes we can use but use only if you don't have any thing or use as a last option 
-
-The key is used by React to identify which elements have changed, which can help improve the performance of your application. However, a common mistake is to use the index of the element as the key . While this may seem like a reasonable solution, it can cause issues when the order of the list is changed.
-
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
-
-What is props in React? Ways to
-
-Props is a special keyword in React that stands for properties and is used for passing data from one component to another. Data with props are passed in a unidirectional flow from parent to child.
-
-
-ways are like destrcturing...
-
-./././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././././.
-What is a Config Driven UI ?
-
-Config-driven UI is a technique that allows you to create dynamic and customizable UIs without hard coding them. It uses a configuration file to define the layout and content of the UI components. This talk will cover the implementation of a smallest unit of component, such as a drop-down, form, or chart.
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
