@@ -2,7 +2,7 @@ import { CDN_URL } from "../utils/constants"
 
 const RestrauntCard = (props) => {
 
-    const {name,cuisines,avgRating,deliveryTime,cloudinaryImageId}=props.resObj?.data
+    const {name,cuisines,avgRating,deliveryTime,cloudinaryImageId}=props.resObj
     console.log(name)
     return (
       <div className="res-card">
@@ -16,3 +16,4 @@ const RestrauntCard = (props) => {
   }
 
   export default RestrauntCard
+  

@@ -1,112 +1,307 @@
-What is the difference between Named Export, Default export and * as export?
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+What is a Microservice?
 
-Named Exports:
-💥 With named exports, you can export multiple named values (functions, variables, classes, etc.) from a module.
+A microservice is a software architectural style that structures an application as a collection of loosely coupled services, each focused on performing a specific business function. These services are small, independent, and modular, and they communicate with each other through well-defined APIs (Application Programming Interfaces).
 
-💥 To export something as named export, you use the export keyword followed by the name of the value you want to export.
+Key characteristics of microservices include:
 
-💥 When importing named exports, you use curly braces {} to destructure the named exports you want to import.
+1. **Decomposition:** Applications are decomposed into smaller, manageable services based on business capabilities or domain boundaries.
 
+2. **Independence:** Each microservice operates independently of others, with its own database (if needed) and development team. This isolation allows for scalability, fault tolerance, and technology diversity.
 
-// Exporting module.js
-export const myFunction = () => { /* function body */ };
-export const myVariable = 'Hello';
+3. **Single Responsibility:** Microservices are designed to perform a single business function or service, making them easier to understand, develop, deploy, and maintain.
 
-// Importing module.js
-import { myFunction, myVariable } from './module';
+4. **Autonomy:** Development teams have autonomy over their microservices, allowing them to choose the most suitable technology stack, development methodologies, and deployment strategies.
 
+5. **Communication:** Microservices communicate with each other through well-defined APIs, typically using lightweight protocols such as HTTP/REST or messaging queues.
 
+6. **Scalability:** Microservices enable horizontal scaling, allowing individual services to be scaled independently based on demand.
 
-Default Export:
-💥 Default exports allow you to export only one value per module.
+7. **Resilience:** Failure in one microservice should not bring down the entire system. Services are designed to be resilient and fault-tolerant.
 
-💥 You use the export default syntax to export a value as default from a module.
+8. **Continuous Delivery:** Microservices facilitate continuous integration and continuous delivery (CI/CD) practices, enabling rapid development, testing, and deployment of software updates.
 
-💥 When importing a default export, you can choose any name for the imported value.
+Overall, microservices promote agility, flexibility, and scalability in software development, making them well-suited for complex, large-scale applications and distributed systems. However, they also introduce challenges such as increased operational complexity, service coordination, and data consistency across services.
 
-// Exporting module.js
-const myFunction = () => { /* function body */ };
-export default myFunction;
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
 
-// Importing module.js
-import myFunction from './module';
+What is Monolith architecture?
 
+Monolithic architecture is a traditional software architectural style where an entire application is developed as a single, self-contained unit. In a monolithic architecture, all components of the application are interconnected and deployed as a single package.
 
-* as Export:
-💥 The * as syntax allows you to import all named exports from a module as properties of an object.
+Key characteristics of monolithic architecture include:
 
-💥 It's typically used when you want to import multiple named exports from a module but prefer to access them through a single object.
+1. **Single Codebase:** All functionality of the application is built and maintained within a single codebase, typically organized into modules or layers.
 
+2. **Tight Coupling:** Components within the monolith are tightly coupled, meaning changes to one part of the application may impact other parts.
 
-// Exporting module.js
-export const foo = () => { /* function body */ };
-export const bar = () => { /* function body */ };
+3. **Shared Resources:** Monolithic applications often share common resources, such as databases, libraries, and frameworks.
 
-// Importing module.js
-import * as myModule from './module';
-// Now you can access named exports as properties of myModule
-myModule.foo();
-myModule.bar();
+4. **Deployment:** The entire application, including its frontend, backend, and database, is deployed together as a single unit.
 
+5. **Development:** Development teams work on different parts of the application within the same codebase, using a common set of tools and technologies.
 
-In summary, named exports are useful for exporting multiple values from a module, default export is used when you want to export a single value as the default export, and * as export is used to import multiple named exports from a module and access them through a single object.
+6. **Scalability:** Scaling a monolithic application involves scaling the entire application vertically or horizontally, which may lead to inefficiencies or limitations.
 
+7. **Testing:** Testing a monolithic application involves testing the application as a whole, which may be complex and time-consuming.
 
-💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+While monolithic architecture has been widely used and is relatively simple to develop and deploy, it also has drawbacks, including:
 
+1. **Limited Agility:** Changes to one part of the application may require redeployment of the entire monolith, limiting agility and slowing down development cycles.
 
-What is the importance of config.js file
+2. **Scalability Challenges:** Scaling a monolithic application can be challenging, as resources are shared across the entire application.
 
+3. **Maintenance Complexity:** As monolithic applications grow larger, they become more complex to maintain and evolve, leading to potential technical debt and decreased developer productivity.
 
-A `config.js` file serves as a central hub for storing configuration settings in a web application. Its importance lies in:
+4. **Technology Stack Lock-in:** Monolithic applications are often built using a specific technology stack, which may limit flexibility and hinder adoption of new technologies.
 
-1. Centralization: It provides a single place to manage configuration settings, making it easier to maintain and update.
-
-2. Environment-specific settings: It allows for the management of environment-specific configurations, such as API endpoints or database credentials, ensuring consistent behavior across different deployment environments.
-
-3. Security: By storing sensitive information separately from the codebase, it helps enhance security and prevents accidental exposure of sensitive data.
-
-4. Deployment flexibility: It facilitates smooth deployment by enabling easy switching of configurations for different environments without modifying the source code.
-
-5. Testing: It aids in testing by providing a way to mock or stub configurations for different testing scenarios, ensuring thorough testing of the application under various conditions.
+As software development practices and requirements evolve, many organizations are transitioning from monolithic architectures to more modular and scalable architectures, such as microservices, to address these challenges.
 
 
-💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
 
-What are React Hooks?
+What is the difference between Monolith and Microservice?
 
-React Hooks are functions that allow functional components to have stateful logic and access React lifecycle features. They were introduced in React version 16.8. Prior to Hooks, stateful logic and lifecycle methods were only available in class components. Hooks provide a more concise and flexible way to use state and other React features in functional components without the need for class syntax.
+Monolithic architecture and microservices are two different approaches to designing and building software applications. Here are the key differences between them:
 
-There are several built-in hooks provided by React, including:
+1. **Architecture:**
+   - Monolithic: In a monolithic architecture, the entire application is developed as a single, self-contained unit. All components, including the frontend, backend, and database, are tightly integrated and deployed together.
+   - Microservices: In a microservices architecture, an application is decomposed into a collection of smaller, loosely coupled services, each responsible for a specific business function. These services communicate with each other through well-defined APIs.
 
-1. `useState`: Allows functional components to have local state.
-2. `useEffect`: Enables performing side effects in functional components, such as data fetching, subscriptions, or manually changing the DOM.
-3. `useContext`: Provides access to the React context within functional components.
-4. `useReducer`: An alternative to `useState`, useful for managing more complex state logic.
-5. `useRef`: Returns a mutable ref object whose `.current` property can be used to persist values across renders.
-6. `useCallback` and `useMemo`: Memoize functions and values to optimize performance.
-7. `useLayoutEffect`: Similar to `useEffect`, but fires synchronously after all DOM mutations.
+2. **Size and Complexity:**
+   - Monolithic: Monolithic applications tend to be large and complex, with all functionality built into a single codebase.
+   - Microservices: Microservices are smaller and more focused, with each service responsible for a single business function. This makes them easier to understand, develop, deploy, and maintain.
 
-Custom hooks can also be created, allowing for reusable logic to be shared across components. React Hooks have become a fundamental part of React development, enabling functional components to be more powerful and expressive while retaining simplicity and readability.
+3. **Development and Deployment:**
+   - Monolithic: In a monolithic architecture, development teams work within the same codebase, using a common set of tools and technologies. The entire application is deployed as a single unit.
+   - Microservices: In a microservices architecture, development teams work independently on separate services, often using different technologies and deployment pipelines. Each service can be deployed and scaled independently.
 
-💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+4. **Scalability:**
+   - Monolithic: Scaling a monolithic application involves scaling the entire application vertically or horizontally, which may lead to inefficiencies or limitations.
+   - Microservices: Microservices enable horizontal scaling, allowing individual services to be scaled independently based on demand. This provides greater flexibility and efficiency in resource allocation.
 
-Why do we need a useState Hook?
+5. **Fault Isolation and Resilience:**
+   - Monolithic: Failure in one part of a monolithic application can impact the entire application, as all components are tightly coupled.
+   - Microservices: Microservices are designed for fault isolation, meaning that failure in one service should not affect the operation of other services. This improves the overall resilience and stability of the application.
+
+6. **Technology Stack:**
+   - Monolithic: Monolithic applications are often built using a single technology stack, which may limit flexibility and hinder adoption of new technologies.
+   - Microservices: Microservices allow for technology diversity, as each service can be built using the most suitable technology for its specific requirements. This promotes innovation and allows for the use of best-of-breed technologies.
+
+Overall, while monolithic architecture is simpler to develop and deploy, microservices offer greater flexibility, scalability, and resilience, making them well-suited for complex, large-scale applications and distributed systems. However, microservices also introduce challenges such as increased operational complexity and service coordination. The choice between monolithic and microservices architectures depends on factors such as the size and complexity of the application, development team structure, scalability requirements, and organizational preferences.
 
 
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
 
-The `useState` hook in React is like a toolbox for functional components. It allows these components to have their own memory, called "state." This memory can hold information that changes over time, like a counter or the text in an input field.
+Why do we need a useEffect Hook?
 
-Before hooks, only class components could have this memory. But now, with `useState`, functional components can also remember things.
 
-Why is it important?
+We need the `useEffect` hook in React to perform side effects in function components. Side effects include data fetching, subscriptions, or manually changing the DOM in React components.
 
-1. **Keeps Things Simple:** Functional components are easier to write and understand. `useState` makes them even simpler by allowing them to remember information without converting them into class components.
+Here's why `useEffect` is important:
 
-2. **No More Confusion:** With `useState`, functional components don't need the confusing `this` keyword to access their memory. They can do it directly, making the code clearer.
+1. **Lifecycle Management:** In class components, lifecycle methods like `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` were used to manage side effects. `useEffect` hook provides a declarative way to handle these lifecycle actions in function components.
 
-3. **Better Performance:** Functional components with `useState` can often run faster than class components because React can optimize them more efficiently.
+2. **Avoiding Side Effects in Render:** Since function components are re-executed on every render, including side effects directly in the component body can lead to unintentional side effects on every render. `useEffect` allows us to separate side effects from the render logic, ensuring they are only executed when needed.
 
-In a nutshell, `useState` is like a magic spell that gives functional components the power to remember things. It keeps the code simple, reduces confusion, and makes everything run faster.
+3. **Asynchronous Operations:** `useEffect` can handle asynchronous operations like data fetching using promises or async/await syntax. This allows components to fetch data and update the UI asynchronously without blocking the render process.
 
-💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+4. **Dependency Management:** `useEffect` allows us to specify dependencies for the side effects. This ensures that the effect is only re-run when specific values have changed, preventing unnecessary re-execution and improving performance.
+
+5. **Cleanup:** `useEffect` supports cleanup functions that are executed when the component unmounts or when dependencies change. This is useful for unsubscribing from subscriptions, clearing timers, or releasing resources to avoid memory leaks.
+
+Overall, `useEffect` provides a flexible and efficient way to manage side effects in React function components, improving code readability, maintainability, and performance.
+
+
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+
+What is Optional Chaining?
+
+Optional chaining is a feature in some programming languages, including JavaScript, introduced to simplify accessing properties or calling methods of objects when there's a possibility of encountering null or undefined values along the chain. 
+
+Here's a scenario to illustrate its necessity:
+
+```javascript
+let user = {
+    name: "John",
+    address: {
+        city: "New York"
+    }
+};
+
+console.log(user.address.street); // This will throw an error because 'street' is not defined
+```
+
+In this example, if `address` were not defined in the `user` object, or if `user` itself were null or undefined, trying to access `user.address.street` would result in an error. To handle such cases, developers often write checks to ensure each nested property or method exists before accessing it:
+
+```javascript
+if (user && user.address && user.address.street) {
+    console.log(user.address.street);
+} else {
+    console.log("Street is not available.");
+}
+```
+
+Optional chaining simplifies this process by allowing you to access nested properties or methods with a question mark (`?`), indicating that if any part of the chain is null or undefined, the entire chain will short-circuit and return undefined. Here's how you could rewrite the previous example using optional chaining:
+
+```javascript
+console.log(user?.address?.street); // No error will be thrown, and it will log undefined if any part of the chain is null or undefined
+```
+
+If `user` or `address` is null or undefined, or if `street` is not defined, the expression `user?.address?.street` will simply evaluate to undefined without throwing an error. 
+
+Optional chaining can significantly reduce the amount of boilerplate code needed for null or undefined checks, making code cleaner and more readable.
+
+
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+
+What is Shimmer UI?
+
+Shimmer UI is a design pattern used primarily in mobile and web applications to indicate to users that content is loading. It involves displaying placeholder elements that mimic the shape and size of the actual content while it's being fetched or processed. These placeholder elements often have a subtle animation, typically a shimmering effect, to convey activity and signal to the user that something is happening in the background.
+
+The shimmer effect is usually achieved by animating a gradient that moves horizontally across the placeholder elements, giving the impression of movement and liveliness. It helps maintain user engagement by providing visual feedback and reducing the perception of latency during loading times.
+
+Shimmer UIs are commonly used in scenarios where loading times might be longer, such as when fetching data from remote servers or when loading images or other media content. By incorporating shimmer effects, developers can create smoother and more engaging user experiences, even during moments of loading or waiting.
+
+
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+
+What is the difference between JS expression and JS statement?
+
+In JavaScript, expressions and statements are fundamental concepts that serve different purposes:
+
+1. **Expression**:
+   - An expression is any piece of code that produces a value. It can be a simple value like a number or a string, or it can be more complex, involving operators, variables, and function calls.
+   - Examples of expressions include:
+     - `5 + 3` (evaluates to the value 8)
+     - `x * 2` (evaluates to the value of variable `x` multiplied by 2)
+     - `Math.random()` (calls the `random()` function, producing a random number)
+   - Expressions can be used anywhere in JavaScript where a value is expected, such as in assignments, function arguments, or return statements.
+
+2. **Statement**:
+   - A statement is a complete instruction that performs some action. It doesn't necessarily produce a value, but rather it changes the state of the program in some way.
+   - Examples of statements include:
+     - Variable declarations (`let x = 5;`)
+     - Control flow statements like `if`, `else`, `for`, `while`, `switch`
+     - Function declarations (`function myFunction() { ... }`)
+     - Assignment statements (`x = 10;`)
+   - Statements are executed sequentially by the JavaScript interpreter.
+
+In summary, expressions produce values, while statements perform actions or control the flow of the program. JavaScript is built around the interaction between these two concepts, allowing developers to write dynamic and flexible code.
+
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+
+What is Conditional Rendering, explain with a code example?
+
+Conditional rendering refers to the practice of displaying different UI elements or components based on certain conditions or states within an application. This technique is commonly used in web and mobile development to dynamically show or hide content based on user interactions, data loading, or other runtime conditions.
+
+Here's a code example in React, a popular JavaScript library for building user interfaces, demonstrating conditional rendering:
+
+```javascript
+import React, { useState } from 'react';
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Function to handle login/logout
+  const handleLoginToggle = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
+
+  return (
+    <div>
+      <h1>Welcome to My App</h1>
+      {/* Conditional rendering based on isLoggedIn state */}
+      {isLoggedIn ? (
+        <div>
+          <p>You are logged in.</p>
+          <button onClick={handleLoginToggle}>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <p>Please login to continue.</p>
+          <button onClick={handleLoginToggle}>Login</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example, the `isLoggedIn` state variable is used to determine whether to render the "You are logged in" message with a logout button or the "Please login to continue" message with a login button. The `handleLoginToggle` function toggles the `isLoggedIn` state when the user clicks the login or logout button.
+
+This way, the UI dynamically updates based on the state of the application, providing a personalized and responsive user experience. Conditional rendering is a powerful technique for building interactive and engaging interfaces in modern web applications.
+
+
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+
+What is CORS?
+
+CORS stands for Cross-Origin Resource Sharing. It is a security feature implemented by web browsers to prevent malicious websites from making unauthorized requests to another website, known as a cross-origin request.
+
+When a web page makes a request to a different domain, protocol, or port than the one it was served from, it's considered a cross-origin request. CORS is a mechanism that allows servers to specify who can access their resources and under what conditions. It provides a way for servers to declare which origins (domains) are permitted to access their resources via HTTP headers.
+
+Here's how CORS works:
+
+1. **Browser sends a request**: When a web page makes a cross-origin request (e.g., an AJAX request to a different domain), the browser adds an Origin header to the request, indicating the origin of the requesting page.
+
+2. **Server responds with CORS headers**: The server receiving the request checks if the Origin header matches any allowed origins. If the request is allowed, the server includes specific CORS headers in its response, such as Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers, etc.
+
+3. **Browser enforces CORS**: Upon receiving the response with CORS headers, the browser checks if the request is permitted based on the CORS policy. If the response indicates that the request is allowed, the browser proceeds with the request. Otherwise, it blocks the request and prevents the web page from accessing the response data.
+
+CORS is crucial for security because it prevents unauthorized websites from accessing sensitive data or performing actions on behalf of users without their consent. However, it also allows legitimate web applications to make cross-origin requests when necessary, such as fetching data from APIs hosted on different domains.
+
+In summary, CORS is a security feature implemented by browsers to control cross-origin requests, ensuring that resources on one domain can't be accessed by another domain without explicit permission from the server hosting those resources.
+
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+
+What is async and await?
+
+`async` and `await` are features in JavaScript that are used to work with asynchronous code in a more synchronous and readable manner, especially when dealing with Promises.
+
+1. **`async`**: The `async` keyword is used to define an asynchronous function. An asynchronous function returns a Promise implicitly. It allows you to write asynchronous code that looks and behaves like synchronous code. When an `async` function is called, it returns a Promise immediately, and its return value is automatically wrapped in a resolved Promise.
+
+   Example:
+   ```javascript
+   async function fetchData() {
+       // Asynchronous operations (e.g., fetching data from a server)
+       return await someAsyncOperation();
+   }
+   ```
+
+2. **`await`**: The `await` keyword is used inside an `async` function to pause the execution of the function until a Promise is resolved. It can only be used within an `async` function. When `await` is used with a Promise, it waits for the Promise to resolve, and then it returns the resolved value. If the Promise is rejected, it throws an error, which can be caught using `try...catch` blocks.
+
+   Example:
+   ```javascript
+   async function fetchData() {
+       try {
+           const data = await someAsyncOperation(); // Wait for the Promise to resolve
+           console.log(data); // Process the resolved data
+       } catch (error) {
+           console.error(error); // Handle errors if the Promise is rejected
+       }
+   }
+   ```
+
+Together, `async` and `await` make asynchronous code easier to read and write, especially when dealing with multiple asynchronous operations or chaining multiple asynchronous calls. They help avoid "callback hell" and make error handling more straightforward by allowing the use of standard try-catch blocks.
+
+
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+What is the use of `const json = await data.json();` in getRestaurants()?
+
+The line `const json = await data.json();` in a function named `getRestaurants()` is used to asynchronously parse the response data from an HTTP request as JSON format.
+
+Let's break it down:
+
+1. `data.json()`: The `json()` method is a built-in method in the `fetch` API (used for making HTTP requests in JavaScript) that returns a Promise. This Promise resolves with the JSON representation of the response body.
+
+2. `await data.json()`: By using the `await` keyword, the execution of the `getRestaurants()` function is paused until the Promise returned by `data.json()` is resolved. This means that the code after this line will not be executed until the response data is successfully parsed as JSON.
+
+3. `const json = ...`: Once the Promise returned by `data.json()` is resolved, the parsed JSON data is stored in the variable `json`, making it available for further processing within the `getRestaurants()` function.
+
+So, `const json = await data.json();` is used to asynchronously extract the JSON data from the response of an HTTP request, allowing you to work with the data in a structured format within your JavaScript code.
+
+
+💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
