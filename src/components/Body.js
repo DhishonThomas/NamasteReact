@@ -1,10 +1,16 @@
 import RestrauntCard from "./RestrauntCard"
 import { useState,useEffect } from "react"
 import Shimmer from "./Shimmer"
+import { Link } from "react-router-dom"
+import { Restaurant_URL } from "../utils/constants"
+import useOnlineStatus from "../utils/useOnlineStatus"
+
 const Body = () => {
     const [restaurantData,setRestaruant]=useState([])
 const [filterSearchData,setfilterSearchData]=useState([])
     const [searchText,setSearchText]=useState("")
+
+
 
 //use effect have two arguments callback function and an 
 useEffect(()=>{
@@ -14,14 +20,22 @@ fetchData()
 //when ever state variable updates , react triggers a reconsiliation cycle (rerenders the componentent)
 
 const fetchData= async ()=>{
- const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.2587531&lng=75.78041&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+ const data=await fetch(Restaurant_URL)
  const json = await data.json()
 let apiRes= json?.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
- const infoArray = apiRes.map(item => item.info);
- const filterSearchData = apiRes.map(item => item.info);
- setfilterSearchData(filterSearchData)
- setRestaruant(infoArray)
+if(apiRes !== undefined){
+  const infoArray = apiRes.map(item => item.info);
+  setfilterSearchData(infoArray)
+  setRestaruant(infoArray)
+}
 
+
+}
+
+const onlineStatus=useOnlineStatus()
+
+if(onlineStatus===false){
+  return(<h1>Looks that your are offline 🙂 😙 </h1>)
 }
 
 if(restaurantData.length===0){
@@ -63,7 +77,8 @@ if(restaurantData.length===0){
         <div className="res-container">
        
         {  filterSearchData.map((elem,index)=>(
-          <RestrauntCard resObj={elem} key={index}/>
+          <Link to={"/restaurants/"+elem.id}>          <RestrauntCard resObj={elem} key={elem.id}/>
+          </Link>
         ))}
           
   
