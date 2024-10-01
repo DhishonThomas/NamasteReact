@@ -34,3 +34,17 @@ example in package.json file change the script so that you can easily simplfy th
   npm build
 
   ./.././././.
+
+  # Reducx Toolkit
+
+  -Install @reduxjs/toolkit and react-redux
+
+  -Build our store
+
+  -Connect our store to our app
+
+  -Slice (cartSlice)
+
+  -dispatch(action)
+
+  -Selector

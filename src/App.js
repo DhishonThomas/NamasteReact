@@ -9,14 +9,20 @@ import RestaurantMenu from "./components/RestaurantMenu"
 
 import { createBrowserRouter,RouterProvider ,Outlet} from "react-router-dom"
 
+import { Provider } from "react-redux"
+import appStore from "./utils/appStore"
+import Cart from "./components/Cart"
+
 const NewShop = lazy(()=>import('./components/NewShop'))
 
 const Applayout = () => {
 
   return (
     <>
+    <Provider store={appStore}>
       <Header />
       <Outlet />
+      </Provider>
     </>
   )
 }
@@ -28,6 +34,10 @@ children:[
   {
 path:"/",
 element:<Body/>
+  },
+  {
+    path:"/cart",
+    element:<Cart/>
   },
   {
     path:"/about",

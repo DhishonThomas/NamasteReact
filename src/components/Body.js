@@ -11,25 +11,29 @@ const [filterSearchData,setfilterSearchData]=useState([])
     const [searchText,setSearchText]=useState("")
 
 
-
-//use effect have two arguments callback function and an 
+    //use effect have two arguments callback function and an 
+    
 useEffect(()=>{
 fetchData()
 
 },[])
+
 //when ever state variable updates , react triggers a reconsiliation cycle (rerenders the componentent)
 
 const fetchData= async ()=>{
  const data=await fetch(Restaurant_URL)
  const json = await data.json()
-let apiRes= json?.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+console.log(json)
+
+ console.log(json?.data?.cards[0]?.card?.card?.imageGridCards?.info)
+let apiRes= json?.data.cards[0]?.imageGridCards?.info[0]
+console.log(apiRes)
 if(apiRes !== undefined){
   const infoArray = apiRes.map(item => item.info);
+  console.log("infoArray",infoArray)
   setfilterSearchData(infoArray)
   setRestaruant(infoArray)
 }
-
-
 }
 
 const onlineStatus=useOnlineStatus()
@@ -48,13 +52,18 @@ if(restaurantData.length===0){
     return (
       
       <div className="body">
-        <div className="filter">
+        <div className="flex mx-56 shadow-lg">
 
-        <div className="search">
-          <input type="text" value={searchText} onChange={(e)=>setSearchText(e.target.value)
+        <div className="p-4 m-4">
+
+          <input type="text" className="border border-black" value={searchText} onChange={(e)=>setSearchText(e.target.value)
           }></input>
+
           {console.log(searchText)}
-          <button onClick={()=>{
+
+          <button 
+          className="px-4 py-2 m-4 bg-green-500 rounded"
+          onClick={()=>{
             const filteredData=restaurantData.filter((elem)=>elem.name.toLowerCase().includes(searchText.toLowerCase()))
             setfilterSearchData(filteredData)
           }
@@ -62,8 +71,10 @@ if(restaurantData.length===0){
           }>
             Search
           </button>
+
         </div>
-            <button className="filter-btn" 
+
+            <button className="bg-slate-400 m-12 px-4 rounded" 
             onClick={()=>{
 
                 const filteredData = restaurantData.filter((elem)=>
@@ -72,9 +83,10 @@ if(restaurantData.length===0){
                 setRestaruant(filteredData)
             }}
             >Top Rated Restaurants</button>
+
         </div>
         
-        <div className="res-container">
+        <div className="mx-56 md:mx-44 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
        
         {  filterSearchData.map((elem,index)=>(
           <Link to={"/restaurants/"+elem.id}>          <RestrauntCard resObj={elem} key={elem.id}/>
